@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {} from './Notification';
-import { handleSend } from './content.tsx';
+import { handleSend } from './content';
 
 interface BrowserSpeechToTextProps {
   isListening: boolean;
