@@ -31,20 +31,23 @@ const BrowserSpeechToText: React.FC<BrowserSpeechToTextProps> = ({
       recognition.lang = language;
 
       recognition.onresult = (event: SpeechRecognitionEvent) => {
-        let currentTranscript = '';
+      let currentTranscript = '';
 
-        for (let i = event.resultIndex; i < event.results.length; i++) {
-          const result = event.results[i];
-          const text = result[0].transcript;
+      for (let i = event.resultIndex; i < event.results.length; i++) {
+        const result = event.results[i];
+        const text = result[0].transcript;
 
-          if (result.isFinal) {
-            setTranscript(text);
+        if (result.isFinal) {
+          if (text.trim().toLowerCase() === 'lori') {
+            handleSend(); // Call the handleSend() function when the user says "lori"
           } else {
-            currentTranscript += text;
+            setTranscript(text);
           }
+        } else {
+          currentTranscript += text;
         }
-      };
-
+      }
+    };
       // @ts-ignore
       recognition.onerror = (event: SpeechRecognitionError) => {
         console.log('Error:', event.error);
