@@ -40,13 +40,12 @@ const BrowserSpeechToText: React.FC<BrowserSpeechToTextProps> = ({
           const text = result[0].transcript;
 
           if (result.isFinal) {
-            if (text.trim().toLowerCase().includes('banana')) {
-              handleSend(); // Call the handleSend() function when the user says "banana"
-            } else {
-              setTranscript(text);
-            }
+            setTranscript(text);
           } else {
             currentTranscript += text;
+            if (currentTranscript.trim().toLowerCase().includes('banana')) {
+              handleSend(); // Call the handleSend() function when the user says "banana"
+            }
           }
         }
       };
