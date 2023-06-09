@@ -274,7 +274,7 @@ const Content: React.FC<ContentProps> = ({ notify }) => {
     }
   }, [conversations]);
 
-  export const handleSend = async () => {
+  const handleSend = async () => {
     if (input.length === 0 || status === 'waiting' || status === 'speaking') {
       return;
     }
