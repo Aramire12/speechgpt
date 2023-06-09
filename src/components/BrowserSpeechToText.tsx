@@ -7,7 +7,7 @@ interface BrowserSpeechToTextProps {
   setIsListening: (update: ((prevIsListening: boolean) => boolean) | boolean) => void;
   setTranscript: (update: ((prevTranscript: string) => string) | string) => void;
   notify: any;
-  handleSend: () => void;
+  handleSend: () => Promise<void>;
 }
 
 const SpeechRecognition =
@@ -22,6 +22,7 @@ const BrowserSpeechToText: React.FC<BrowserSpeechToTextProps> = ({
   setIsListening,
   setTranscript,
   notify,
+  handleSend,
 }) => {
   const [recognition, setRecognition] = useState<SpeechRecognition | null>(globalRecognition);
 
