@@ -7,6 +7,7 @@ interface BrowserSpeechToTextProps {
   setIsListening: (update: ((prevIsListening: boolean) => boolean) | boolean) => void;
   setTranscript: (update: ((prevTranscript: string) => string) | string) => void;
   notify: any;
+  handleSend: () => void;
 }
 
 const SpeechRecognition =
