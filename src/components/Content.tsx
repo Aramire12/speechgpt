@@ -461,6 +461,7 @@ const Content: React.FC<ContentProps> = ({ notify }) => {
           setIsListening={setIsListening}
           setTranscript={setTranscript}
           notify={notify}
+          handleSend={handleSend}
         />
       )}
       {voice.service == 'Azure Speech to Text' && (
